@@ -1,0 +1,255 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FA96269D12FDFFBE00EE150A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA96269C12FDFFBE00EE150A /* Cocoa.framework */; };
+		FA9626A712FDFFBE00EE150A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA9626A512FDFFBE00EE150A /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FA96269912FDFFBE00EE150A /* Black Mac OS X.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Black Mac OS X.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA96269C12FDFFBE00EE150A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		FA96269F12FDFFBE00EE150A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		FA9626A012FDFFBE00EE150A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FA9626A112FDFFBE00EE150A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FA9626A412FDFFBE00EE150A /* Black_Mac_OS_X-Info.plist */ = {isa = PBXFileReference; path = "Black_Mac_OS_X-Info.plist"; sourceTree = "<group>"; };
+		FA9626A612FDFFBE00EE150A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FA9626A812FDFFBE00EE150A /* Black_Mac_OS_X-Prefix.pch */ = {isa = PBXFileReference; path = "Black_Mac_OS_X-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA96269612FDFFBE00EE150A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA96269D12FDFFBE00EE150A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA96268E12FDFFBE00EE150A = {
+			isa = PBXGroup;
+			children = (
+				FA9626A212FDFFBE00EE150A /* Black Mac OS X */,
+				FA96269B12FDFFBE00EE150A /* Frameworks */,
+				FA96269A12FDFFBE00EE150A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FA96269A12FDFFBE00EE150A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA96269912FDFFBE00EE150A /* Black Mac OS X.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA96269B12FDFFBE00EE150A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA96269C12FDFFBE00EE150A /* Cocoa.framework */,
+				FA96269E12FDFFBE00EE150A /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA96269E12FDFFBE00EE150A /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA96269F12FDFFBE00EE150A /* AppKit.framework */,
+				FA9626A012FDFFBE00EE150A /* CoreData.framework */,
+				FA9626A112FDFFBE00EE150A /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		FA9626A212FDFFBE00EE150A /* Black Mac OS X */ = {
+			isa = PBXGroup;
+			children = (
+				FA9626A312FDFFBE00EE150A /* Supporting Files */,
+			);
+			path = "Black Mac OS X";
+			sourceTree = "<group>";
+		};
+		FA9626A312FDFFBE00EE150A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA9626A412FDFFBE00EE150A /* Black_Mac_OS_X-Info.plist */,
+				FA9626A512FDFFBE00EE150A /* InfoPlist.strings */,
+				FA9626A812FDFFBE00EE150A /* Black_Mac_OS_X-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA96269812FDFFBE00EE150A /* Black Mac OS X */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA9626AB12FDFFBE00EE150A /* Build configuration list for PBXNativeTarget "Black Mac OS X" */;
+			buildPhases = (
+				FA96269512FDFFBE00EE150A /* Sources */,
+				FA96269612FDFFBE00EE150A /* Frameworks */,
+				FA96269712FDFFBE00EE150A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Black Mac OS X";
+			productName = "Black Mac OS X";
+			productReference = FA96269912FDFFBE00EE150A /* Black Mac OS X.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA96269012FDFFBE00EE150A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Alex Zielenski";
+			};
+			buildConfigurationList = FA96269312FDFFBE00EE150A /* Build configuration list for PBXProject "Black Mac OS X" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FA96268E12FDFFBE00EE150A;
+			productRefGroup = FA96269A12FDFFBE00EE150A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA96269812FDFFBE00EE150A /* Black Mac OS X */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA96269712FDFFBE00EE150A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA9626A712FDFFBE00EE150A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA96269512FDFFBE00EE150A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FA9626A512FDFFBE00EE150A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA9626A612FDFFBE00EE150A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA9626A912FDFFBE00EE150A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		FA9626AA12FDFFBE00EE150A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FA9626AC12FDFFBE00EE150A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Black Mac OS X/Black_Mac_OS_X-Prefix.pch";
+				INFOPLIST_FILE = "Black Mac OS X/Black_Mac_OS_X-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		FA9626AD12FDFFBE00EE150A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Black Mac OS X/Black_Mac_OS_X-Prefix.pch";
+				INFOPLIST_FILE = "Black Mac OS X/Black_Mac_OS_X-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA96269312FDFFBE00EE150A /* Build configuration list for PBXProject "Black Mac OS X" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA9626A912FDFFBE00EE150A /* Debug */,
+				FA9626AA12FDFFBE00EE150A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA9626AB12FDFFBE00EE150A /* Build configuration list for PBXNativeTarget "Black Mac OS X" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA9626AC12FDFFBE00EE150A /* Debug */,
+				FA9626AD12FDFFBE00EE150A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA96269012FDFFBE00EE150A /* Project object */;
+}

@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Black Mac OS X' target in the 'Black Mac OS X' project
+//
+
+#ifdef __OBJC__
+	#import <Cocoa/Cocoa.h>
+#endif
