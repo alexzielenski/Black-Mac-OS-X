@@ -78,5 +78,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BMXController); // Create easy singleton. Thanks 
 						withMethod:@selector(new_dealloc)
 							 error:&err];
 	NSLog(@"%@", err);
+	[NSThemeFrame jr_aliasMethod:@selector(drawRect:) 
+					withSelector:@selector(orig_drawRect:)
+						   error:&err];
+	NSLog(@"%@", err);
+	[NSThemeFrame jr_swizzleMethod:@selector(drawRect:)
+						withMethod:@selector(new_drawRect:)
+							 error:&err];
+	NSLog(@"%@", err);
 }
 @end

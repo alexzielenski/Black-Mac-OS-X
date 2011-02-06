@@ -16,6 +16,7 @@
 		FAC011B012FE169B00899833 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC011AD12FE169B00899833 /* left.png */; };
 		FAC011B112FE169B00899833 /* middle.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC011AE12FE169B00899833 /* middle.png */; };
 		FAC011B212FE169B00899833 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC011AF12FE169B00899833 /* right.png */; };
+		FAC011B512FEF2D600899833 /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = FAC011B412FEF2D600899833 /* README.textile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		FAC011AD12FE169B00899833 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
 		FAC011AE12FE169B00899833 /* middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = middle.png; sourceTree = "<group>"; };
 		FAC011AF12FE169B00899833 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
+		FAC011B412FEF2D600899833 /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				FA9626A412FDFFBE00EE150A /* Black_Mac_OS_X-Info.plist */,
 				FA9626A512FDFFBE00EE150A /* InfoPlist.strings */,
 				FA9626A812FDFFBE00EE150A /* Black_Mac_OS_X-Prefix.pch */,
+				FAC011B412FEF2D600899833 /* README.textile */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				FAC011B012FE169B00899833 /* left.png in Resources */,
 				FAC011B112FE169B00899833 /* middle.png in Resources */,
 				FAC011B212FE169B00899833 /* right.png in Resources */,
+				FAC011B512FEF2D600899833 /* README.textile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
