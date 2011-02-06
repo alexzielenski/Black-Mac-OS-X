@@ -7,19 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA16383B12FE0CF100A6B1DD /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16383A12FE0CF100A6B1DD /* JRSwizzle.m */; };
+		FA16383E12FE0D9100A6B1DD /* BMXThemeFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16383D12FE0D9000A6B1DD /* BMXThemeFrame.m */; };
+		FA16384112FE107200A6B1DD /* NSBezierPath+PXRoundedRectangleAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16384012FE107200A6B1DD /* NSBezierPath+PXRoundedRectangleAdditions.m */; };
 		FA96269D12FDFFBE00EE150A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA96269C12FDFFBE00EE150A /* Cocoa.framework */; };
 		FA9626A712FDFFBE00EE150A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA9626A512FDFFBE00EE150A /* InfoPlist.strings */; };
+		FA9626B112FE019E00EE150A /* BMXController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9626B012FE019E00EE150A /* BMXController.m */; };
+		FAC011B012FE169B00899833 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC011AD12FE169B00899833 /* left.png */; };
+		FAC011B112FE169B00899833 /* middle.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC011AE12FE169B00899833 /* middle.png */; };
+		FAC011B212FE169B00899833 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC011AF12FE169B00899833 /* right.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA16383512FE09B300A6B1DD /* NSFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFrameView.h; sourceTree = "<group>"; };
+		FA16383612FE09B300A6B1DD /* NSThemeFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSThemeFrame.h; sourceTree = "<group>"; };
+		FA16383712FE09B300A6B1DD /* NSTitledFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTitledFrame.h; sourceTree = "<group>"; };
+		FA16383912FE0CF100A6B1DD /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		FA16383A12FE0CF100A6B1DD /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		FA16383C12FE0D9000A6B1DD /* BMXThemeFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMXThemeFrame.h; path = Classes/SIMBL/Views/BMXThemeFrame.h; sourceTree = "<group>"; };
+		FA16383D12FE0D9000A6B1DD /* BMXThemeFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMXThemeFrame.m; path = Classes/SIMBL/Views/BMXThemeFrame.m; sourceTree = "<group>"; };
+		FA16383F12FE107200A6B1DD /* NSBezierPath+PXRoundedRectangleAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+PXRoundedRectangleAdditions.h"; sourceTree = "<group>"; };
+		FA16384012FE107200A6B1DD /* NSBezierPath+PXRoundedRectangleAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+PXRoundedRectangleAdditions.m"; sourceTree = "<group>"; };
 		FA96269912FDFFBE00EE150A /* Black Mac OS X.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Black Mac OS X.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA96269C12FDFFBE00EE150A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FA96269F12FDFFBE00EE150A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		FA9626A012FDFFBE00EE150A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FA9626A112FDFFBE00EE150A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		FA9626A412FDFFBE00EE150A /* Black_Mac_OS_X-Info.plist */ = {isa = PBXFileReference; path = "Black_Mac_OS_X-Info.plist"; sourceTree = "<group>"; };
+		FA9626A412FDFFBE00EE150A /* Black_Mac_OS_X-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Black_Mac_OS_X-Info.plist"; sourceTree = "<group>"; };
 		FA9626A612FDFFBE00EE150A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FA9626A812FDFFBE00EE150A /* Black_Mac_OS_X-Prefix.pch */ = {isa = PBXFileReference; path = "Black_Mac_OS_X-Prefix.pch"; sourceTree = "<group>"; };
+		FA9626A812FDFFBE00EE150A /* Black_Mac_OS_X-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Black_Mac_OS_X-Prefix.pch"; sourceTree = "<group>"; };
+		FA9626AF12FE019E00EE150A /* BMXController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMXController.h; path = Classes/SIMBL/BMXController.h; sourceTree = "<group>"; };
+		FA9626B012FE019E00EE150A /* BMXController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMXController.m; path = Classes/SIMBL/BMXController.m; sourceTree = "<group>"; };
+		FA9626B212FE02A700EE150A /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		FAC011AD12FE169B00899833 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		FAC011AE12FE169B00899833 /* middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = middle.png; sourceTree = "<group>"; };
+		FAC011AF12FE169B00899833 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +56,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA16383412FE09B300A6B1DD /* Private Headers */ = {
+			isa = PBXGroup;
+			children = (
+				FA16383512FE09B300A6B1DD /* NSFrameView.h */,
+				FA16383612FE09B300A6B1DD /* NSThemeFrame.h */,
+				FA16383712FE09B300A6B1DD /* NSTitledFrame.h */,
+			);
+			name = "Private Headers";
+			path = "Classes/Private Headers";
+			sourceTree = "<group>";
+		};
+		FA16383812FE0CF100A6B1DD /* 3rd Party */ = {
+			isa = PBXGroup;
+			children = (
+				FA16383912FE0CF100A6B1DD /* JRSwizzle.h */,
+				FA16383A12FE0CF100A6B1DD /* JRSwizzle.m */,
+				FA16383F12FE107200A6B1DD /* NSBezierPath+PXRoundedRectangleAdditions.h */,
+				FA16384012FE107200A6B1DD /* NSBezierPath+PXRoundedRectangleAdditions.m */,
+			);
+			name = "3rd Party";
+			path = "Classes/3rd Party";
+			sourceTree = "<group>";
+		};
 		FA96268E12FDFFBE00EE150A = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +118,7 @@
 		FA9626A212FDFFBE00EE150A /* Black Mac OS X */ = {
 			isa = PBXGroup;
 			children = (
+				FA9626AE12FE016300EE150A /* Classes */,
 				FA9626A312FDFFBE00EE150A /* Supporting Files */,
 			);
 			path = "Black Mac OS X";
@@ -81,11 +127,36 @@
 		FA9626A312FDFFBE00EE150A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FAC011AC12FE169B00899833 /* Images */,
+				FA9626B212FE02A700EE150A /* SynthesizeSingleton.h */,
 				FA9626A412FDFFBE00EE150A /* Black_Mac_OS_X-Info.plist */,
 				FA9626A512FDFFBE00EE150A /* InfoPlist.strings */,
 				FA9626A812FDFFBE00EE150A /* Black_Mac_OS_X-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA9626AE12FE016300EE150A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FA9626AF12FE019E00EE150A /* BMXController.h */,
+				FA9626B012FE019E00EE150A /* BMXController.m */,
+				FA16383C12FE0D9000A6B1DD /* BMXThemeFrame.h */,
+				FA16383D12FE0D9000A6B1DD /* BMXThemeFrame.m */,
+				FA16383812FE0CF100A6B1DD /* 3rd Party */,
+				FA16383412FE09B300A6B1DD /* Private Headers */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		FAC011AC12FE169B00899833 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				FAC011AD12FE169B00899833 /* left.png */,
+				FAC011AE12FE169B00899833 /* middle.png */,
+				FAC011AF12FE169B00899833 /* right.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +210,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA9626A712FDFFBE00EE150A /* InfoPlist.strings in Resources */,
+				FAC011B012FE169B00899833 /* left.png in Resources */,
+				FAC011B112FE169B00899833 /* middle.png in Resources */,
+				FAC011B212FE169B00899833 /* right.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +223,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9626B112FE019E00EE150A /* BMXController.m in Sources */,
+				FA16383B12FE0CF100A6B1DD /* JRSwizzle.m in Sources */,
+				FA16383E12FE0D9100A6B1DD /* BMXThemeFrame.m in Sources */,
+				FA16384112FE107200A6B1DD /* NSBezierPath+PXRoundedRectangleAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +282,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Black Mac OS X/Black_Mac_OS_X-Prefix.pch";
 				INFOPLIST_FILE = "Black Mac OS X/Black_Mac_OS_X-Info.plist";
@@ -220,8 +299,10 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Black Mac OS X/Black_Mac_OS_X-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Black Mac OS X/Black_Mac_OS_X-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -248,6 +329,7 @@
 				FA9626AD12FDFFBE00EE150A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
