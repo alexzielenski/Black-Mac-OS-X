@@ -49,4 +49,6 @@ The layout of the documents should be self-explanatory, if not. Here is a quick 
 	
 h3. License
 
-The "Creative Commons Attribution-NonCommercial 3.0 Unported License":http://creativecommons.org/licenses/by-nc/3.0/ applies to this work. All attribution goes to "Alex Zielenski":http://alexzielenski.com.
+The "Creative Commons Attribution-NonCommercial 3.0 Unported License":http://creativecommons.org/licenses/by-nc/3.0/ applies to this work. All attribution goes to "Alex Zielenski":http://alexzielenski.com. Please do not use any of this code in commercial work with consent.
+
+Thank You.
