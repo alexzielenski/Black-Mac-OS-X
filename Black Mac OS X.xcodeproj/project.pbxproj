@@ -17,6 +17,8 @@
 		FAC011B112FE169B00899833 /* middle.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC011AE12FE169B00899833 /* middle.png */; };
 		FAC011B212FE169B00899833 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC011AF12FE169B00899833 /* right.png */; };
 		FAC011B512FEF2D600899833 /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = FAC011B412FEF2D600899833 /* README.textile */; };
+		FAC2181212FF2FA100392069 /* BMXCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC2181112FF2FA100392069 /* BMXCell.m */; };
+		FAC2181512FF2FC000392069 /* BMXObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC2181412FF2FC000392069 /* BMXObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,10 @@
 		FAC011AE12FE169B00899833 /* middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = middle.png; sourceTree = "<group>"; };
 		FAC011AF12FE169B00899833 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
 		FAC011B412FEF2D600899833 /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
+		FAC2181012FF2FA100392069 /* BMXCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMXCell.h; path = Classes/SIMBL/Categories/BMXCell.h; sourceTree = "<group>"; };
+		FAC2181112FF2FA100392069 /* BMXCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMXCell.m; path = Classes/SIMBL/Categories/BMXCell.m; sourceTree = "<group>"; };
+		FAC2181312FF2FC000392069 /* BMXObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMXObject.h; path = Classes/SIMBL/Categories/BMXObject.h; sourceTree = "<group>"; };
+		FAC2181412FF2FC000392069 /* BMXObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMXObject.m; path = Classes/SIMBL/Categories/BMXObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,8 +150,7 @@
 			children = (
 				FA9626AF12FE019E00EE150A /* BMXController.h */,
 				FA9626B012FE019E00EE150A /* BMXController.m */,
-				FA16383C12FE0D9000A6B1DD /* BMXThemeFrame.h */,
-				FA16383D12FE0D9000A6B1DD /* BMXThemeFrame.m */,
+				FAC011B912FF2F3500899833 /* Categories */,
 				FA16383812FE0CF100A6B1DD /* 3rd Party */,
 				FA16383412FE09B300A6B1DD /* Private Headers */,
 			);
@@ -160,6 +165,19 @@
 				FAC011AF12FE169B00899833 /* right.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		FAC011B912FF2F3500899833 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				FA16383C12FE0D9000A6B1DD /* BMXThemeFrame.h */,
+				FA16383D12FE0D9000A6B1DD /* BMXThemeFrame.m */,
+				FAC2181312FF2FC000392069 /* BMXObject.h */,
+				FAC2181412FF2FC000392069 /* BMXObject.m */,
+				FAC2181012FF2FA100392069 /* BMXCell.h */,
+				FAC2181112FF2FA100392069 /* BMXCell.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +249,8 @@
 				FA16383B12FE0CF100A6B1DD /* JRSwizzle.m in Sources */,
 				FA16383E12FE0D9100A6B1DD /* BMXThemeFrame.m in Sources */,
 				FA16384112FE107200A6B1DD /* NSBezierPath+PXRoundedRectangleAdditions.m in Sources */,
+				FAC2181212FF2FA100392069 /* BMXCell.m in Sources */,
+				FAC2181512FF2FC000392069 /* BMXObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +273,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -260,7 +281,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -270,6 +291,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

@@ -6,7 +6,6 @@
 	***************************************************************************/
 
 #import "JRSwizzle.h"
-#import <objc/objc-class.h>
 
 #define SetNSErrorFor(FUNC, ERROR_VAR, FORMAT,...)	\
 	if (ERROR_VAR) {	\

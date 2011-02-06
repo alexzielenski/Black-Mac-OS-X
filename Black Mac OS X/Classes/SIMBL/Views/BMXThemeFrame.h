@@ -6,6 +6,7 @@
 //  Copyright 2011 Alex Zielenski. All rights reserved.
 //
 #import "NSBezierPath+PXRoundedRectangleAdditions.h"
+#import "BMXController.h"
 
 #import "NSThemeFrame.h"
 
@@ -14,11 +15,17 @@
 - (void)new_drawFrame:(struct CGRect)arg1;
 - (id)new_customTitleCell;
 
+- (void)drawBottomBar;
+- (void)drawTitleBar;
+
 - (void)new_drawRect:(NSRect)fp8;
-- (void)drawHighlights;
+- (void)drawHighlightsWithCorners:(BOOL)useCorners;
 
 - (void)drawTitleGradientInRect:(NSRect)titleRect cornerRadius:(CGFloat)cornerRadius roundCorners:(OSCornerType)corner onTop:(BOOL)top;
 - (NSGradient*)titleGradient;
 
 - (void)new_dealloc;
+
+- (void)_windowChangedKeyState;
+
 @end

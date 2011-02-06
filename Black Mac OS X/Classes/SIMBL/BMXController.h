@@ -8,6 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import "SynthesizeSingleton.h"
+#import "JRSwizzle.h"
+
+// bmx
+#import "BMXThemeFrame.h"
+#import "BMXCell.h"
+#import "BMXObject.h"
 
 @interface BMXController : NSObject {
     

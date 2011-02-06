@@ -6,6 +6,7 @@
 	***************************************************************************/
 
 #import <Foundation/Foundation.h>
+#import <objc/objc-class.h>
 
 @interface NSObject (JRSwizzle)
 + (BOOL)jr_swizzleMethod:(SEL)origSel_ withMethod:(SEL)altSel_ error:(NSError**)error_;
