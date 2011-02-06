@@ -1512,7 +1512,7 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>318693083.65891999</real>
+		<real>318695030.45421499</real>
 		<string>{1353, 2048}</string>
 		<string>{2739, 5}</string>
 		<dict>
@@ -1612,9 +1612,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318692994.36448503</real>
-		<string>{740, 1856}</string>
-		<string>{2547, 0}</string>
+		<real>318695030.45402801</real>
+		<string>{1318, 1876}</string>
+		<string>{2922, 264}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -1708,7 +1708,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318693083.65918303</real>
+		<real>318695030.45447898</real>
 		<string>{2256, 2273}</string>
 		<string>{3796, 7}</string>
 		<dict>
@@ -1803,7 +1803,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318693083.65905201</real>
+		<real>318695030.45434803</real>
 		<string>{10749, 3328}</string>
 		<string>{12825, 7}</string>
 		<dict>
@@ -1851,9 +1851,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318689198.31022102</real>
+		<real>318695018.37408102</real>
 		<string>{0, 310}</string>
-		<string>{304, 0}</string>
+		<string>{186, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -1947,8 +1947,8 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318693083.65872103</real>
-		<string>{2962, 1895}</string>
+		<real>318695017.29882598</real>
+		<string>{2769, 2081}</string>
 		<string>{4787, 0}</string>
 		<dict>
 			<key>$class</key>
@@ -2139,9 +2139,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318690590.35978597</real>
+		<real>318693507.34512901</real>
 		<string>{5190, 2114}</string>
-		<string>{7014, 30}</string>
+		<string>{7039, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -2784,7 +2784,7 @@
 				<integer>249</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/Views/BMXThemeFrame.m</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/BMXController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -2802,7 +2802,7 @@
 				<integer>251</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/Views/BMXThemeFrame.h</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/BMXController.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -2820,7 +2820,7 @@
 				<integer>253</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/BMXController.m</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/Views/BMXThemeFrame.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -2838,7 +2838,7 @@
 				<integer>255</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/Private%20Headers/NSFrameView.h</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/3rd%20Party/JRSwizzle.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -2856,7 +2856,7 @@
 				<integer>257</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/3rd%20Party/JRSwizzle.m</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/Views/BMXThemeFrame.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -2874,7 +2874,7 @@
 				<integer>259</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/Private%20Headers/NSTitledFrame.h</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/Private%20Headers/NSFrameView.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -2892,7 +2892,7 @@
 				<integer>261</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/3rd%20Party/JRSwizzle.h</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/Private%20Headers/NSTitledFrame.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -2910,7 +2910,7 @@
 				<integer>263</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/BMXController.h</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/3rd%20Party/JRSwizzle.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -12374,7 +12374,7 @@
 				<integer>797</integer>
 			</dict>
 		</dict>
-		<string>BMXThemeFrame.m</string>
+		<string>BMXController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -12422,7 +12422,7 @@
 			<key>documentURL</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>118</integer>
+				<integer>104</integer>
 			</dict>
 			<key>timestamp</key>
 			<dict>
@@ -13106,10 +13106,10 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318693083.66008198</real>
-		<string>{2962, 1895}</string>
-		<string>{4787, 0}</string>
-		<string>-new_dealloc</string>
+		<real>318695030.45546103</real>
+		<string>{1318, 1876}</string>
+		<string>{2922, 264}</string>
+		<string>-swizzle</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -13128,7 +13128,7 @@
 				<integer>866</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/Views/BMXThemeFrame.m</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/BMXController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -13401,7 +13401,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>890</integer>
+					<integer>886</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -14568,7 +14568,7 @@
 		</dict>
 		<string>IDEUtilitiesArea</string>
 		<real>260</real>
-		<string>BMXThemeFrame.m</string>
+		<string>BMXController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -14583,7 +14583,7 @@
 				</dict>
 			</array>
 		</dict>
-		<string>{{145, 136}, {1400, 973}}</string>
+		<string>{{994, -64}, {1400, 973}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -16475,7 +16475,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318693083.66242999</real>
+		<real>318695030.45776498</real>
 		<string>{10749, 3328}</string>
 		<string>{12825, 7}</string>
 		<string>-_isUtility</string>
@@ -18184,7 +18184,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318693083.66103703</real>
+		<real>318695030.45640898</real>
 		<string>{2256, 2273}</string>
 		<string>{3796, 7}</string>
 		<string>-_contentToFrameMinXWidth</string>
@@ -19891,7 +19891,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318693083.66175801</real>
+		<real>318695030.45709002</real>
 		<string>{1353, 2048}</string>
 		<string>{2739, 5}</string>
 		<string>-_setNonactivatingPanel:</string>

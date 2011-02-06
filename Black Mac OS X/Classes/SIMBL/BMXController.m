@@ -12,6 +12,18 @@
 
 #import "BMXThemeFrame.h"
 
+/* Ideas–I will be storing some ideas here
+ 1.) For text that is on a black/customized background, how about i do this:
+	 A.) Create a category on NSObject that has a method: - (BOOL)isCustomized;
+     B.) In each of my categories on stuff i customized (i.e. BMXThemeFrame), implement 
+         this method to return a result based on the existence of the swizzled methods or something similar
+     C.) For each NSCell, use the controlView's superview and call - (BOOL)isCustomized inside the - (NSBackgroundStyle)backgroundStyle and 
+         -(NSColor*)textColor (will test for NSTextFieldCell, of course) and change the values accordingly
+ 2.) Create a + (void)swizzle method in all of my categories/subclasses so it can be organized instead of swizzling everything in this file.
+ 3.) Create a jr_aliasAndSwizzle…error: method to create an alias first (like done below) and then swizzle. This way i can call the original
+     method from within my categories without tons of code
+ */
+
 @interface BMXController (Obama)
 - (float)_titlebarHeight;
 - (NSRect)titlebarRect;
@@ -26,21 +38,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BMXController); // Create easy singleton. Thanks 
 	BMXController *controller = [BMXController sharedBMXController];
 	[controller swizzle];
 	
+	// Redraw the currently displayed windows with the black stuff on it
 	for (NSWindow *window in [[NSApplication sharedApplication] windows]) {
 		[window display];
 	}
 }
 - (void)swizzle {
-	// Swizzle all of our methods in here.
-//	Class class =  [NSThemeFrame class];
-	/*Method m0 = class_getInstanceMethod([self class], @selector(drawRect:));
-	class_addMethod(class, @selector(drawRectOriginal:), method_getImplementation(m0), method_getTypeEncoding(m0));
-	
-	Method m1 = class_getInstanceMethod(class, @selector(drawRect:));
-	Method m2 = class_getInstanceMethod(class, @selector(drawRectOriginal:));
-	
-	method_exchangeImplementations(m1, m2);*/
-	
 	NSLog(@"Swizzling…");
 	NSError *err = nil;
 	[NSThemeFrame jr_aliasMethod:@selector(_drawTitleBar:) 

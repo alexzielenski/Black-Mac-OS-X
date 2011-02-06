@@ -1,0 +1,57 @@
+h1. Black Mac OS X
+
+Black Mac OS X is a free, open-source SIMBL plugin created by Alex Zielenski. In a finished state it will provide a complete Mac OS X Snow Leopard theme and hopefully 10.7 Lion.
+
+h3. Documentation
+
+There is no formal documentation to the code as of now (and probably, there never will be) but most of the code is documented with in-line comments.
+
+h3. Usage
+
+It builds as a SIMBL plugin; so to use, just build and put the plugin in "~/Library/Application Support/SIMBL/Plugins"
+
+h3. Adding Your Own Features
+
+The layout of the documents should be self-explanatory, if not. Here is a quick run through:
+
+	* There is a root plugin class, BMXController.h which is in charge of initializing the plugin, starting the swizzling of all the methods, and basically just getting things going.
+	
+	** If you are unfamiliar with what swizzling is, it is used to replace another class's methods with your own.
+
+	** I use JRSwizzle to swizzle everything in here.
+
+	** All the swizzled methods follow the same pattern, the new one gets a new_ as a prefix and you have to create an alias for the old one using an orig_ prefix to be able to call it within you're category.
+
+	* To swizzle an entirely different class (like NSTableView) so you can change the selection gradient. First, create a category to NSTableView: 
+	
+	<pre> 
+	@interface NSTableView (BMXTableView)
+	- (void)new_overriddenMethod;
+	@end
+	
+	@implementation NSTableView (BMXTableView)
+	- (void)new_overriddenMethod {
+		[self orig_overriddenMethod]; // Call the original method
+		[self setColor:[NSColor greenColor]]; // Do what you need to do.
+	}
+	</pre>
+	
+	* Don't forget to import the category you create into BMXController and add the JRSwizzle code:
+
+	<pre>
+	#import "BMXTableView.h"
+	…
+	[NSTableView jr_aliasMethod:@selector(overriddenMethod) // Create an alias so we can call it from our category
+						withSelector:@selector(orig_overriddenMethod)
+							   error:&err];
+	NSLog(@"%@", err);
+	[NSTableView jr_swizzleMethod:@selector(overriddenMethod) // Replace the original implementation with your own.
+						withMethod:@selector(new_overriddenMethod)
+							 error:&err];
+	NSLog(@"%@", err); // We love to log errors!
+	…
+	</pre>
+	
+h3. License
+
+The "Creative Commons Attribution-NonCommercial 3.0 Unported License":http://creativecommons.org/licenses/by-nc/3.0/ applies to this work. All attribution goes to "Alex Zielenski":http://alexzielenski.com.
