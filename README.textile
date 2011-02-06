@@ -2,6 +2,8 @@ h1. Black Mac OS X
 
 Black Mac OS X is a free, open-source SIMBL plugin created by Alex Zielenski. In a finished state it will provide a complete Mac OS X Snow Leopard theme and hopefully 10.7 Lion. "Shades of Gray for Snow Leopard":http://www.fif7y.com/themes-computers.html looks good with this window theme.
 
+!http://kttns.org/hnjkz(Black Mac OS X in Gity using SOG Theme)!
+
 h3. Documentation
 
 There is no formal documentation to the code as of now (and probably, there never will be) but most of the code is documented with in-line comments.
