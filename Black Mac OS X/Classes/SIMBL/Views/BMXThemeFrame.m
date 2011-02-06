@@ -17,6 +17,12 @@ static NSImage *middleHighlight;
 
 @implementation NSThemeFrame (BMXThemeFrame)
 - (void)new_drawTitleBar:(struct CGRect)arg1 {	// IMP=0x001023e0
+	if (self._isUtility||self._isSheet) {
+		// We'll get back to this…
+		[self orig_drawTitleBar:arg1];
+		return;
+	}
+	
 	[NSGraphicsContext saveGraphicsState];
 	
 	[[NSColor clearColor] set];
@@ -59,6 +65,12 @@ static NSImage *middleHighlight;
 - (void)new_drawFrame:(struct CGRect)arg1 {
 	NSEraseRect(NSRectFromCGRect(arg1));
 	BOOL textured;
+	
+	// Fill the background color
+	[(NSColor*)self.contentFill set];
+	NSRectFillUsingOperation(self.contentRect, NSCompositeSourceOver);
+	
+	// If it isn't textured , draw the titlebar;
 	if ((self.styleMask&NSTexturedBackgroundWindowMask)==NSTexturedBackgroundWindowMask)
 		textured=YES;
 	else
@@ -71,12 +83,12 @@ static NSImage *middleHighlight;
 	if (!leftHighlight||!rightHighlight||!middleHighlight) {
 	NSBundle *bundle = [NSBundle bundleForClass:[BMXController class]];
 	leftHighlight = [[[NSImage alloc] initWithContentsOfFile:
-					 [bundle pathForResource:@"left" ofType:@"png"]] autorelease];
+					 [bundle pathForResource:@"left" ofType:@"png"]] retain];
 	
 	rightHighlight = [[[NSImage alloc] initWithContentsOfFile:
-					  [bundle pathForResource:@"right" ofType:@"png"]] autorelease];
+					  [bundle pathForResource:@"right" ofType:@"png"]] retain];
 	middleHighlight = [[[NSImage alloc] initWithContentsOfFile:
-					   [bundle pathForResource:@"middle" ofType:@"png"]] autorelease];
+					   [bundle pathForResource:@"middle" ofType:@"png"]] retain];
 	}
 	
 	NSRect frame = self.frame;
@@ -110,9 +122,19 @@ static NSImage *middleHighlight;
 - (NSGradient*)titleGradient {
 	if (!titleGradient)
 		titleGradient = [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceWhite:0.279 alpha:1.000]
-													   endingColor:[NSColor colorWithDeviceWhite:0.000 alpha:1.000]] autorelease];
+													   endingColor:[NSColor colorWithDeviceWhite:0.000 alpha:1.000]] retain];
 
 	return titleGradient;
 
+}
+
+#pragma mark - Other
+- (void)new_dealloc {
+	[titleGradient release], titleGradient=nil;
+	[leftHighlight release], leftHighlight=nil;
+	[rightHighlight release], rightHighlight=nil;
+	[middleHighlight release], middleHighlight=nil;
+	
+	[self orig_dealloc]; // equivalent to calling [super dealloc]?
 }
 @end

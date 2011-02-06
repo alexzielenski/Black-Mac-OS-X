@@ -46,6 +46,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BMXController); // Create easy singleton. Thanks 
 	[NSThemeFrame jr_aliasMethod:@selector(_drawTitleBar:) 
 					withSelector:@selector(orig_drawTitleBar:) 
 						   error:&err];
+	NSLog(@"%@", err);
 	[NSThemeFrame jr_swizzleMethod:@selector(_drawTitleBar:)
 						withMethod:@selector(new_drawTitleBar:)
 							 error:&err];
@@ -53,6 +54,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BMXController); // Create easy singleton. Thanks 
 	[NSThemeFrame jr_aliasMethod:@selector(drawFrame:) 
 					withSelector:@selector(orig_drawFrame:)
 						   error:&err];
+	NSLog(@"%@", err);
 	[NSThemeFrame jr_swizzleMethod:@selector(drawFrame:)
 						withMethod:@selector(new_drawFrame:)
 							 error:&err];
@@ -63,6 +65,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BMXController); // Create easy singleton. Thanks 
 	NSLog(@"%@", err);
 	[NSThemeFrame jr_swizzleMethod:@selector(_customTitleCell)
 						withMethod:@selector(new_customTitleCell)
+							 error:&err];
+	NSLog(@"%@", err);
+	[NSThemeFrame jr_aliasMethod:@selector(dealloc) 
+					withSelector:@selector(orig_dealloc)
+						   error:&err];
+	NSLog(@"%@", err);
+	[NSThemeFrame jr_swizzleMethod:@selector(dealloc)
+						withMethod:@selector(new_dealloc)
 							 error:&err];
 	NSLog(@"%@", err);
 }

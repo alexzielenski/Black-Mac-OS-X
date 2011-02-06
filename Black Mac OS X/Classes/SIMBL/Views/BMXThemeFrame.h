@@ -15,4 +15,6 @@
 
 - (void)drawHighlights;
 - (NSGradient*)titleGradient;
+
+- (void)new_dealloc;
 @end
