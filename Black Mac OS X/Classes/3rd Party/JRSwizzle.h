@@ -16,4 +16,7 @@
 
 + (BOOL)jr_aliasClassMethod:(SEL)methSel_ withName:(const char*)aliasName_ error:(NSError**)error_;
 + (BOOL)jr_aliasClassMethod:(SEL)methSel_ withSelector:(SEL)aliasSel_ error:(NSError**)error_;
+
++ (BOOL)jr_aliasAndSwizzle:(SEL)methSel_ withMethod:(SEL)altSel_ error:(NSError**)error_;
+
 @end

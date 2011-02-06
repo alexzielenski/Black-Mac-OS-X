@@ -8,74 +8,111 @@
 #import "BMXController.h"
 #import "BMXThemeFrame.h"
 #import "NSBezierPath+PXRoundedRectangleAdditions.h"
+#pragma mark - Title Bar Drawing
+
+static NSGradient *titleGradient = nil;
+static NSImage *leftHighlight;
+static NSImage *rightHighlight;
+static NSImage *middleHighlight;
 
 @implementation NSThemeFrame (BMXThemeFrame)
 - (void)new_drawTitleBar:(struct CGRect)arg1 {	// IMP=0x001023e0
 	[NSGraphicsContext saveGraphicsState];
 	
-	CGFloat fw = self.frame.size.width;
-	
-//	
 	[[NSColor clearColor] set];
-	NSEraseRect(NSRectFromCGRect(arg1));
-	NSRectFill(NSRectFromCGRect(arg1));
+	//	NSEraseRect(self.bounds);
+	NSRectFillUsingOperation(self.frame, NSCompositeClear);
 
-
+	// Create a top titlebar rectangle to fill. If it has a toolbar, add the toolbar's actual hight
     NSRect frame = [self frame];
-    NSRect titleRect = NSMakeRect(0, NSMaxY(frame) - [self _titlebarHeight], NSWidth(frame), [self _titlebarHeight]-1);
-	if ([self _toolbarIsShown]) {
+    NSRect titleRect = NSMakeRect(0, NSMaxY(frame) - [self _titlebarHeight], NSWidth(frame), [self _titlebarHeight]);
+	if ([self _toolbarIsShown]||[self _toolbarIsInTransition]) {
 		CGFloat size = [(NSView*)[self _toolbarView] frame].size.height;
 		titleRect.size.height+=size;
 		titleRect.origin.y-=size;
 	}
-    
+	
+	// Black outline around the top for perfection, -0.5 corner radius
 	NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:titleRect
-                                         cornerRadius:[self roundedCornerRadius]-1
+                                         cornerRadius:[self roundedCornerRadius]-0.5
                                             inCorners:OSTopLeftCorner | OSTopRightCorner];
 	[[NSColor blackColor] set];
 	[path fill];
-
+	// Lower the actual fill 1pt
+	titleRect.size.height-=1;
 	path = [NSBezierPath bezierPathWithRoundedRect:titleRect
 									  cornerRadius:[self roundedCornerRadius]
 										 inCorners:OSTopLeftCorner | OSTopRightCorner];
-	NSGradient *gr = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceWhite:0.279 alpha:1.000]
-												   endingColor:[NSColor colorWithDeviceWhite:0.000 alpha:1.000]];
-	[gr drawInBezierPath:path angle:-90];
-	[gr release];
-	[path addClip];
-	// Draw highlights
-	NSBundle *bundle = [NSBundle bundleForClass:[BMXController class]];
-	NSImage *left = [[NSImage alloc] initWithContentsOfFile:
-					 [bundle pathForResource:@"left" ofType:@"png"]];
-
-	NSImage *right = [[NSImage alloc] initWithContentsOfFile:
-					  [bundle pathForResource:@"right" ofType:@"png"]];
-	NSImage *middle = [[NSImage alloc] initWithContentsOfFile:
-					   [bundle pathForResource:@"middle" ofType:@"png"]];
-	NSRect highlightRect = NSMakeRect(1, NSMaxY(frame)-left.size.height-1, left.size.width, left.size.height);
-	[left drawInRect:highlightRect
-			 fromRect:NSZeroRect
-			operation:NSCompositeSourceOver
-			 fraction:0.7];
-	highlightRect.origin.x+=left.size.width;
-	highlightRect.size.width=fw-right.size.width-left.size.width-2;
-	[middle drawInRect:highlightRect
-			fromRect:NSZeroRect
-		   operation:NSCompositeSourceOver
-			fraction:0.7];
-	highlightRect.origin.x=fw-right.size.width-1;
-	highlightRect.size.width=right.size.width;
-	[right drawInRect:highlightRect
-			  fromRect:NSZeroRect
-			 operation:NSCompositeSourceOver
-			  fraction:0.7];
 	
-	[left release];
-	[middle release];
-	[right release];
+	// Draw static gradient
+	[self.titleGradient drawInBezierPath:path angle:-90];
+	
+	// Draw highlights, we need to save the graphics state so the addClip only applies to the highlights
+	[NSGraphicsContext saveGraphicsState];
+	[path addClip];
+	[self drawHighlights];	
 	[NSGraphicsContext restoreGraphicsState];
 
 	   
+	[NSGraphicsContext restoreGraphicsState];
+}
+- (void)new_drawFrame:(struct CGRect)arg1 {
+	NSEraseRect(NSRectFromCGRect(arg1));
+	BOOL textured;
+	if ((self.styleMask&NSTexturedBackgroundWindowMask)==NSTexturedBackgroundWindowMask)
+		textured=YES;
+	else
+		[self _drawTitleBar:arg1];
+	
 	[self _drawTitleStringIn:self.bounds withColor:[NSColor whiteColor]];
+
+}
+- (void)drawHighlights {
+	if (!leftHighlight||!rightHighlight||!middleHighlight) {
+	NSBundle *bundle = [NSBundle bundleForClass:[BMXController class]];
+	leftHighlight = [[[NSImage alloc] initWithContentsOfFile:
+					 [bundle pathForResource:@"left" ofType:@"png"]] autorelease];
+	
+	rightHighlight = [[[NSImage alloc] initWithContentsOfFile:
+					  [bundle pathForResource:@"right" ofType:@"png"]] autorelease];
+	middleHighlight = [[[NSImage alloc] initWithContentsOfFile:
+					   [bundle pathForResource:@"middle" ofType:@"png"]] autorelease];
+	}
+	
+	NSRect frame = self.frame;
+	CGFloat fw = frame.size.width;
+	NSRect highlightRect = NSMakeRect(0, NSMaxY(frame)-leftHighlight.size.height-1, leftHighlight.size.width, leftHighlight.size.height);
+	[leftHighlight drawInRect:highlightRect
+			fromRect:NSZeroRect
+		   operation:NSCompositeSourceOver
+			fraction:0.5];
+	highlightRect.origin.x+=leftHighlight.size.width;
+	highlightRect.size.width=fw-rightHighlight.size.width-leftHighlight.size.width;
+	[middleHighlight drawInRect:highlightRect
+			  fromRect:NSZeroRect
+			 operation:NSCompositeSourceOver
+			  fraction:0.5];
+	highlightRect.origin.x=fw-rightHighlight.size.width;
+	highlightRect.size.width=rightHighlight.size.width;
+	[rightHighlight drawInRect:highlightRect
+			 fromRect:NSZeroRect
+			operation:NSCompositeSourceOver
+			 fraction:0.5]; // The shine is too opaque for a black window
+}
+#pragma mark - Title
+- (id)new_customTitleCell {
+	id cell = [self orig_customTitleCell];
+	if (cell)
+		[(NSTextFieldCell*)cell setBackgroundStyle:NSBackgroundStyleLowered];
+	return cell;
+}
+#pragma mark - Accessors
+- (NSGradient*)titleGradient {
+	if (!titleGradient)
+		titleGradient = [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceWhite:0.279 alpha:1.000]
+													   endingColor:[NSColor colorWithDeviceWhite:0.000 alpha:1.000]] autorelease];
+
+	return titleGradient;
+
 }
 @end

@@ -43,11 +43,27 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BMXController); // Create easy singleton. Thanks 
 	
 	NSLog(@"Swizzling…");
 	NSError *err = nil;
-	BOOL win = [NSThemeFrame jr_swizzleMethod:@selector(_drawTitleBar:)
-								   withMethod:@selector(new_drawTitleBar:)
-											 error:&err];
+	[NSThemeFrame jr_aliasMethod:@selector(_drawTitleBar:) 
+					withSelector:@selector(orig_drawTitleBar:) 
+						   error:&err];
+	[NSThemeFrame jr_swizzleMethod:@selector(_drawTitleBar:)
+						withMethod:@selector(new_drawTitleBar:)
+							 error:&err];
 	NSLog(@"%@", err);
-	if (win)
-		NSLog(@"win");
+	[NSThemeFrame jr_aliasMethod:@selector(drawFrame:) 
+					withSelector:@selector(orig_drawFrame:)
+						   error:&err];
+	[NSThemeFrame jr_swizzleMethod:@selector(drawFrame:)
+						withMethod:@selector(new_drawFrame:)
+							 error:&err];
+	NSLog(@"%@", err);
+	[NSThemeFrame jr_aliasMethod:@selector(_customTitleCell) 
+					withSelector:@selector(orig_customTitleCell) 
+						   error:&err];
+	NSLog(@"%@", err);
+	[NSThemeFrame jr_swizzleMethod:@selector(_customTitleCell)
+						withMethod:@selector(new_customTitleCell)
+							 error:&err];
+	NSLog(@"%@", err);
 }
 @end

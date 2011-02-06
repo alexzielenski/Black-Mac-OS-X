@@ -160,5 +160,25 @@
 + (BOOL)jr_aliasClassMethod:(SEL)methSel_ withSelector:(SEL)aliasSel_ error:(NSError**)error_ {
 	return [object_getClass((id)self) jr_aliasMethod:methSel_ withSelector:aliasSel_ error:error_];	
 }
+#pragma mark - Alex Zielenski Additions
++ (BOOL)jr_aliasAndSwizzle:(SEL)methSel_ withMethod:(SEL)altSel_ error:(NSError**)error_ {
+	NSString *newAlias = @"orig_";
+	if ([NSStringFromSelector(methSel_) hasPrefix:@"_"])
+		newAlias = @"orig";
+	newAlias = [newAlias stringByAppendingString:NSStringFromSelector(methSel_)];
+	BOOL success = [object_getClass((id)self) jr_aliasMethod:methSel_ 
+												withSelector:NSSelectorFromString(newAlias)
+													   error:error_];
+	NSLog(@"%@", newAlias);
+	if (error_||!success) {
+		return success;
+	}
+	
+	success = [object_getClass((id)self) jr_swizzleMethod:methSel_ 
+											   withMethod:altSel_ 
+													error:error_];
 
+	return success;
+		
+}
 @end
