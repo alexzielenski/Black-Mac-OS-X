@@ -7,7 +7,6 @@
 //
 #import "BMXController.h"
 #import "BMXThemeFrame.h"
-#import "NSBezierPath+PXRoundedRectangleAdditions.h"
 #pragma mark - Title Bar Drawing
 
 static NSGradient *titleGradient = nil;
@@ -17,17 +16,15 @@ static NSImage *middleHighlight;
 
 @implementation NSThemeFrame (BMXThemeFrame)
 - (void)new_drawTitleBar:(struct CGRect)arg1 {	// IMP=0x001023e0
-	if (self._isUtility||self._isSheet) {
+	if ((self.styleMask&NSUtilityWindowMask)==NSUtilityWindowMask) {
 		// We'll get back to this…
 		[self orig_drawTitleBar:arg1];
 		return;
 	}
 	CGFloat topBarHeight = self._topBarHeight;
-	
-	[NSGraphicsContext saveGraphicsState];
-	
+		
 	[[NSColor clearColor] set];
-	//	NSEraseRect(self.bounds);
+	NSEraseRect(self.bounds);
 	NSRectFillUsingOperation(self.frame, NSCompositeClear);
 
 	// Create a top titlebar rectangle to fill. If it has a toolbar, add the toolbar's actual hight
@@ -39,41 +36,23 @@ static NSImage *middleHighlight;
 		titleRect.origin.y-=size;
 	}
 	
-	// Black outline around the top for perfection, -0.5 corner radius
-	NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:titleRect
-                                         cornerRadius:[self roundedCornerRadius]-0.5
-                                            inCorners:OSTopLeftCorner | OSTopRightCorner];
-	[[NSColor blackColor] set];
-	[path fill];
-	// Lower the actual fill 1pt
-	titleRect.size.height-=1;
-	path = [NSBezierPath bezierPathWithRoundedRect:titleRect
-									  cornerRadius:[self roundedCornerRadius]
-										 inCorners:OSTopLeftCorner | OSTopRightCorner];
-	
-	// Draw static gradient
-	[self.titleGradient drawInBezierPath:path angle:-90];
-	
-	// Draw highlights, we need to save the graphics state so the addClip only applies to the highlights
-	[NSGraphicsContext saveGraphicsState];
-	[path addClip];
-	[self drawHighlights];	
-	[NSGraphicsContext restoreGraphicsState];
+	[self drawTitleGradientInRect:titleRect 
+					 cornerRadius:[self roundedCornerRadius] 
+					 roundCorners:OSTopLeftCorner | OSTopRightCorner
+							onTop:YES];
 
-	
-	[NSGraphicsContext restoreGraphicsState];
-	
+
 	
 }
 - (void)new_drawFrame:(struct CGRect)arg1 {
-//	NSLog(@"%f, %f", self._topBarHeight, self._bottomBarHeight);
-	NSEraseRect(NSRectFromCGRect(arg1));
 	BOOL textured;
 	
-	// Fill the background color
-	[(NSColor*)self.contentFill set];
-	NSRectFillUsingOperation(self.contentRect, NSCompositeSourceOver);
 	
+	if (!self._isHUDWindow) {
+	// Fill the background color
+		[(NSColor*)self.contentFill set];
+		NSRectFillUsingOperation(self.contentRect, NSCompositeSourceOver); // This broke HUD windows
+	}
 	// If it isn't textured , draw the titlebar;
 	if ((self.styleMask&NSTexturedBackgroundWindowMask)==NSTexturedBackgroundWindowMask)
 		textured=YES;
@@ -123,19 +102,16 @@ static NSImage *middleHighlight;
 	// Draw Bottom bar using the title gradient
 	CGFloat bottomBarHeight=self._bottomBarHeight;
 	NSRect bottomBarRect = NSMakeRect(0, 0, self.frame.size.width, bottomBarHeight);
-	NSBezierPath *bottomBezier = [NSBezierPath bezierPathWithRoundedRect:bottomBarRect
-															cornerRadius:(self.bottomCornerRounded) ? [self roundedCornerRadius] : 0
-															   inCorners:OSBottomLeftCorner | OSBottomRightCorner];
+
 	// TODO: Draw a black stroke or border across the top of the bottom bar or around the bottom bar if the window is not textured
 	// Clear out the previous bottom bar
 	NSEraseRect(bottomBarRect);
 	[[NSColor clearColor] set];
-	
-	[NSGraphicsContext saveGraphicsState];
 	NSRectFillUsingOperation(bottomBarRect, NSCompositeClear);
-	[self.titleGradient drawInBezierPath:bottomBezier 
-								   angle:-90];
-	[NSGraphicsContext restoreGraphicsState];
+	[self drawTitleGradientInRect:bottomBarRect 
+					 cornerRadius:(self.bottomCornerRounded) ? [self roundedCornerRadius] : 0 
+					 roundCorners:OSBottomLeftCorner | OSBottomRightCorner 
+							onTop:NO];
 }
 #pragma mark - Title
 - (id)new_customTitleCell {
@@ -143,6 +119,36 @@ static NSImage *middleHighlight;
 	if (cell)
 		[(NSTextFieldCell*)cell setBackgroundStyle:NSBackgroundStyleLowered];
 	return cell;
+}
+- (void)drawTitleGradientInRect:(NSRect)titleRect cornerRadius:(CGFloat)cornerRadius roundCorners:(OSCornerType)corner onTop:(BOOL)top {
+	// Black outline around the top for perfection, -0.5 corner radius
+	[NSGraphicsContext saveGraphicsState];
+	NSRect rect = titleRect;
+	NSBezierPath *path = nil;
+	if (top) {
+		path = [NSBezierPath bezierPathWithRoundedRect:rect
+										  cornerRadius:cornerRadius-0.5
+											 inCorners:corner];
+		[[NSColor blackColor] set];
+		[path fill];
+		// Lower the actual fill 1pt
+		rect.size.height-=1;
+	}
+	path = [NSBezierPath bezierPathWithRoundedRect:rect
+									  cornerRadius:cornerRadius
+										 inCorners:corner];
+	
+	// Draw static gradient
+	[self.titleGradient drawInBezierPath:path angle:-90];
+	
+	if (top) {
+		// Draw highlights, we need to save the graphics state so the addClip only applies to the highlights
+		[NSGraphicsContext saveGraphicsState];
+		[path addClip];
+		[self drawHighlights];	
+		[NSGraphicsContext restoreGraphicsState];
+	}
+	[NSGraphicsContext restoreGraphicsState];
 }
 #pragma mark - Accessors
 - (NSGradient*)titleGradient {
