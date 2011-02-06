@@ -28,9 +28,9 @@
 }
 #pragma mark - Overrides
 - (NSBackgroundStyle)new_backgroundStyle {
-	if (self.controlView.superview.isBMXCustomized == YES)
-		return NSBackgroundStyleLowered;
-	return NSBackgroundStyleRaised;
+//	if (self.controlView.superview.isBMXCustomized == YES)
+//		return NSBackgroundStyleLowered;
+	return [self orig_backgroundStyle]; // this stuff doesn't work. any help?
 }
 //- (NSBackgroundStyle)interiorBackgroundStyle {
 //	return NSBackgroundStyleLowered;
