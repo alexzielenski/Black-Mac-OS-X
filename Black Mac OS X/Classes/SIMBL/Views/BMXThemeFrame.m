@@ -22,19 +22,14 @@ static NSImage *middleHighlight;
 		return;
 	}
 	CGFloat topBarHeight = self._topBarHeight;
-		
-	[[NSColor clearColor] set];
-	NSEraseRect(self.bounds);
-	NSRectFillUsingOperation(self.frame, NSCompositeClear);
 
 	// Create a top titlebar rectangle to fill. If it has a toolbar, add the toolbar's actual hight
     NSRect frame = [self frame];
     NSRect titleRect = NSMakeRect(0, NSMaxY(frame) - topBarHeight, NSWidth(frame), topBarHeight);
-	if ([self _toolbarIsShown]||[self _toolbarIsInTransition]) {
-		CGFloat size = [(NSView*)[self _toolbarView] frame].size.height;
-		titleRect.size.height+=size;
-		titleRect.origin.y-=size;
-	}
+	
+	[[NSColor clearColor] set];
+	NSEraseRect(titleRect);
+	NSRectFillUsingOperation(titleRect, NSCompositeClear);
 	
 	[self drawTitleGradientInRect:titleRect 
 					 cornerRadius:[self roundedCornerRadius] 
@@ -47,6 +42,9 @@ static NSImage *middleHighlight;
 - (void)new_drawFrame:(struct CGRect)arg1 {
 	BOOL textured;
 	
+	NSEraseRect(self.bounds);
+	[[NSColor clearColor] set];
+	NSRectFillUsingOperation(self.bounds, NSCompositeClear);
 	
 	if (!self._isHUDWindow) {
 	// Fill the background color
@@ -64,6 +62,7 @@ static NSImage *middleHighlight;
 	
 }
 - (void)drawHighlights {
+
 	if (!leftHighlight||!rightHighlight||!middleHighlight) {
 	NSBundle *bundle = [NSBundle bundleForClass:[BMXController class]];
 	leftHighlight = [[[NSImage alloc] initWithContentsOfFile:
@@ -98,7 +97,6 @@ static NSImage *middleHighlight;
 - (void)new_drawRect:(NSRect)fp8 {
 	// I don't know what the original drawRect: does, nor do i want to mess with it so lets just draw the bottom bar over it.
 	[self orig_drawRect:fp8];
-	
 	// Draw Bottom bar using the title gradient
 	CGFloat bottomBarHeight=self._bottomBarHeight;
 	NSRect bottomBarRect = NSMakeRect(0, 0, self.frame.size.width, bottomBarHeight);

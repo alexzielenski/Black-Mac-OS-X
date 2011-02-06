@@ -1546,7 +1546,7 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>318710098.98036897</real>
+		<real>318710748.36824203</real>
 		<string>{0, 2100}</string>
 		<string>{2739, 5}</string>
 		<dict>
@@ -1741,7 +1741,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318710098.98056102</real>
+		<real>318710748.368469</real>
 		<string>{2256, 2273}</string>
 		<string>{3796, 7}</string>
 		<dict>
@@ -1884,7 +1884,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318710098.98046702</real>
+		<real>318710748.36835903</real>
 		<string>{2255, 3983}</string>
 		<string>{4688, 3}</string>
 		<dict>
@@ -2028,9 +2028,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318710098.98021799</real>
-		<string>{0, 1621}</string>
-		<string>{1337, 0}</string>
+		<real>318710748.36806202</real>
+		<string>{2890, 2193}</string>
+		<string>{3370, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -2766,7 +2766,7 @@
 				<integer>247</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>318710094.93024802</real>
+			<real>318710711.94700998</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -2777,7 +2777,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 1:34 PM</string>
+		<string>Today at 1:45 PM</string>
 		<integer>106</integer>
 		<dict>
 			<key>$class</key>
@@ -13187,10 +13187,10 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318710098.98118001</real>
-		<string>{0, 1621}</string>
-		<string>{1337, 0}</string>
-		<string>-new_drawTitleBar:</string>
+		<real>318710748.36921501</real>
+		<string>{2890, 2193}</string>
+		<string>{3370, 0}</string>
+		<string>-new_drawRect:</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -16263,7 +16263,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318710098.98307198</real>
+		<real>318710748.37143302</real>
 		<string>{2255, 3983}</string>
 		<string>{4688, 3}</string>
 		<string>-_isHUDWindow</string>
@@ -17972,7 +17972,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318710098.98189998</real>
+		<real>318710748.37004203</real>
 		<string>{2256, 2273}</string>
 		<string>{3796, 7}</string>
 		<string>-_contentToFrameMinXWidth</string>
@@ -19679,7 +19679,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>318710098.982494</real>
+		<real>318710748.37074298</real>
 		<string>{0, 2100}</string>
 		<string>{2739, 5}</string>
 		<string>-_setNonactivatingPanel:</string>
