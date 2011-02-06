@@ -45,7 +45,13 @@ NSLog(@"%@", err);
 NSLog(@"%@", err); // We love to log errors!
 	…</pre>
 	5. If you create some of your own useful features, send me an e-mail at alex[at]alexzielenski[dot]com and I'll try to add it in!
-	
+
+h3. Issues
+
+# iChat not-logged-in window not fully themed
+# Bottom of finder window has unreadable text
+# Toolbars have unreadable text
+
 h3. License
 
 The "Creative Commons Attribution-NonCommercial 3.0 Unported License":http://creativecommons.org/licenses/by-nc/3.0/ applies to this work. All attribution goes to "Alex Zielenski":http://alexzielenski.com. Please do not use any of this code in commercial work with consent.
