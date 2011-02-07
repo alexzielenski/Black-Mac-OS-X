@@ -49,8 +49,8 @@ NSLog(@"%@", err); // We love to log errors!
 h3. Issues
 
 # iChat not-logged-in window not fully themed
-# Bottom of finder window has unreadable text
-# Toolbars have unreadable text
+# -Bottom of finder window has unreadable text- Fixed!
+# -Toolbars have unreadable text- Fixed!
 
 h3. License
 
