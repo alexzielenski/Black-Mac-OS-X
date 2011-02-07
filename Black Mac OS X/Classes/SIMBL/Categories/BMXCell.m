@@ -21,6 +21,7 @@
 						withMethod:@selector(new_backgroundStyle)
 							 error:&err];
 	NSLog(@"%@", err);
+	
 }
 - (BOOL)isBMXCustomized {
 	// no need

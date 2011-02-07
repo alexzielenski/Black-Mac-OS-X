@@ -54,6 +54,6 @@ h3. Issues
 
 h3. License
 
-The "Creative Commons Attribution-NonCommercial 3.0 Unported License":http://creativecommons.org/licenses/by-nc/3.0/ applies to this work. All attribution goes to "Alex Zielenski":http://alexzielenski.com. Please do not use any of this code in commercial work with consent.
+The "Creative Commons Attribution-NonCommercial 3.0 Unported License":http://creativecommons.org/licenses/by-nc/3.0/ applies to this work. All attribution goes to "Alex Zielenski":http://alexzielenski.com. Please do not use any of this code in commercial work without consent.
 
 Thank You.
