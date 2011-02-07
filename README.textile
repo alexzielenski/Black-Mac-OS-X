@@ -28,7 +28,7 @@ The layout of the documents should be self-explanatory, if not. Here is a quick 
 …
 @implementation NSTableView (BMXTableView)
 - (void)new_overriddenMethod {
-	[self orig_overriddenMethod]; // Call the original method
+	[self orig_overriddenMethod]; // Call the original method (if needed)
 	[self setColor:[NSColor greenColor]]; // Do what you need to do.
 }</pre>	
 	4. Don't forget to import the category you create into BMXController and add the JRSwizzle code:
@@ -43,7 +43,7 @@ NSLog(@"%@", err);
 					withMethod:@selector(new_overriddenMethod)
 						 error:&err];
 NSLog(@"%@", err); // We love to log errors!
-	…</pre>
+…</pre>
 	5. If you create some of your own useful features, send me an e-mail at alex[at]alexzielenski[dot]com and I'll try to add it in!
 
 h3. Issues
@@ -51,6 +51,8 @@ h3. Issues
 # iChat not-logged-in window not fully themed
 # -Bottom of finder window has unreadable text- Fixed!
 # -Toolbars have unreadable text- Fixed!
+# Finder isn't themed on initial login.
+# Sometimes the Finder bottom bar isn't white. (especially when selecting an object)
 
 h3. License
 
