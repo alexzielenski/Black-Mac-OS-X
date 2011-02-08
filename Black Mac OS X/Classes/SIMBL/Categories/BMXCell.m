@@ -38,11 +38,11 @@
 		NSRect bottomBar = NSMakeRect(0, 0, themeFrame.frame.size.width, themeFrame._bottomBarHeight);
 		NSRect frame = self.controlView.frame;
 		frame = [self.controlView convertRect:frame toView:nil];
-
-		if (NSEqualRects(NSIntersectionRect(topBar, frame), frame)||NSEqualRects(NSIntersectionRect(bottomBar, frame), frame))
+		if ((NSEqualRects(NSIntersectionRect(topBar, frame), frame)||NSEqualRects(NSIntersectionRect(bottomBar, frame), frame))&&!self.isBordered&&![self.controlView isKindOfClass:[NSSegmentedControl class]]) { // no segmented controls for now
 			return NSBackgroundStyleLowered; // If the controlVIew's entire frame is inside the top bar or the bottom bar, make the cell text/images white. Coincidentally works for toolbars as well
+		}
 	}
-	return [self orig_backgroundStyle];
+	return (NSBackgroundStyle)[self orig_backgroundStyle];
 }
 //- (NSBackgroundStyle)interiorBackgroundStyle {
 //	return NSBackgroundStyleLowered;
