@@ -4,6 +4,8 @@ Black Mac OS X is a free, open-source SIMBL plugin created by Alex Zielenski. In
 
 !http://kttns.org/hnjkz(Black Mac OS X in Gity using SOG Theme)!
 
+You can download the built version "here":https://github.com/alexzielenski/Black-Mac-OS-X/blob/master/Black%20Mac%20OS%20X.bundle.zip?raw=true
+
 h3. Documentation
 
 There is no formal documentation to the code as of now (and probably, there never will be) but most of the code is documented with in-line comments.
