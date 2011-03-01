@@ -50,7 +50,6 @@
 		FAC2181112FF2FA100392069 /* BMXCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMXCell.m; path = Classes/SIMBL/Categories/BMXCell.m; sourceTree = "<group>"; };
 		FAC2181312FF2FC000392069 /* BMXObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMXObject.h; path = Classes/SIMBL/Categories/BMXObject.h; sourceTree = "<group>"; };
 		FAC2181412FF2FC000392069 /* BMXObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMXObject.m; path = Classes/SIMBL/Categories/BMXObject.m; sourceTree = "<group>"; };
-		FAC2182213008F3F00392069 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = View.xib; path = ../../../../View.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +90,6 @@
 		FA96268E12FDFFBE00EE150A = {
 			isa = PBXGroup;
 			children = (
-				FAC2182213008F3F00392069 /* View.xib */,
 				FA9626A212FDFFBE00EE150A /* Black Mac OS X */,
 				FA96269B12FDFFBE00EE150A /* Frameworks */,
 				FA96269A12FDFFBE00EE150A /* Products */,
