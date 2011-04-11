@@ -6430,7 +6430,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>324176028.31208098</real>
+		<real>324176246.21913999</real>
 		<string>{3265, 1746}</string>
 		<string>{3881, 0}</string>
 		<dict>
@@ -6813,9 +6813,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>324172309.255481</real>
-		<string>{7071, 1668}</string>
-		<string>{7637, 582}</string>
+		<real>324176635.37002099</real>
+		<string>{5528, 2064}</string>
+		<string>{6534, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7446,7 +7446,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>404</integer>
+					<integer>611</integer>
 				</dict>
 			</array>
 		</dict>
@@ -7700,7 +7700,7 @@
 				<integer>627</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>324176024.20272303</real>
+			<real>324176500.61143398</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -7711,7 +7711,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 8:53 PM</string>
+		<string>Today at 9:01 PM</string>
 		<integer>106</integer>
 		<dict>
 			<key>$class</key>
@@ -7794,7 +7794,7 @@
 				<integer>633</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/Categories/BMXCell.m</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/Views/BMXThemeFrame.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7812,7 +7812,7 @@
 				<integer>635</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/3rd%20Party/NSBezierPath+PXRoundedRectangleAdditions.h</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/Categories/BMXCell.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7830,7 +7830,7 @@
 				<integer>637</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/3rd%20Party/NSBezierPath+PXRoundedRectangleAdditions.m</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/3rd%20Party/NSBezierPath+PXRoundedRectangleAdditions.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7848,7 +7848,7 @@
 				<integer>639</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/Categories/BMXCell.h</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/3rd%20Party/NSBezierPath+PXRoundedRectangleAdditions.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7866,7 +7866,7 @@
 				<integer>641</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/3rd%20Party/NSBezierPath+MCAdditions.m</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/Categories/BMXCell.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7884,7 +7884,7 @@
 				<integer>643</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/3rd%20Party/NSBezierPath+MCAdditions.h</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/3rd%20Party/NSBezierPath+MCAdditions.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7902,7 +7902,7 @@
 				<integer>645</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/BMXController.m</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/3rd%20Party/NSBezierPath+MCAdditions.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7920,7 +7920,7 @@
 				<integer>647</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/Views/BMXThemeFrame.m</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/BMXController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -10307,7 +10307,7 @@
 				<integer>789</integer>
 			</dict>
 		</dict>
-		<string>BMXCell.m</string>
+		<string>BMXThemeFrame.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -10383,7 +10383,7 @@
 				<integer>192</integer>
 			</dict>
 			<key>NS.string</key>
-			<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/Categories/BMXCell.m</string>
+			<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/Views/BMXThemeFrame.m</string>
 		</dict>
 		<dict>
 			<key>$class</key>
@@ -10430,10 +10430,10 @@
 				</dict>
 			</array>
 		</dict>
-		<real>324176028.31283998</real>
-		<string>{3265, 1746}</string>
-		<string>{3881, 0}</string>
-		<string>-_coreUIDrawSegmentBackground:withCellFrame:inView:</string>
+		<real>324176635.37099898</real>
+		<string>{5528, 2064}</string>
+		<string>{6534, 0}</string>
+		<string>-drawTitleBar</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -10452,7 +10452,7 @@
 				<integer>806</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/Categories/BMXCell.m</string>
+		<string>file://localhost/Users/Alex/Documents/Source%20Code/In%20Progress/Black%20Mac%20OS%20X/Black%20Mac%20OS%20X/Classes/SIMBL/Views/BMXThemeFrame.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11233,7 +11233,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>865</integer>
+					<integer>862</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -12444,8 +12444,8 @@
 		</dict>
 		<string>IDEUtilitiesArea</string>
 		<real>260</real>
-		<string>BMXCell.m</string>
-		<string>{{96, 130}, {1400, 975}}</string>
+		<string>BMXThemeFrame.m</string>
+		<string>{{277, 139}, {1400, 975}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>

@@ -188,6 +188,10 @@ static NSImage *middleHighlight;
 					 cornerRadius:(utilityWindow) ? 0 : [self roundedCornerRadius] 
 					 roundCorners:OSTopLeftCorner | OSTopRightCorner
 							onTop:YES];
+	
+	// draw a black separator on the bottom
+	[[NSColor blackColor] set];
+	NSRectFill(NSMakeRect(NSMinX(titleRect), NSMinY(titleRect), NSWidth(titleRect), 1));
 }
 - (void)drawTitleGradientInRect:(NSRect)titleRect cornerRadius:(CGFloat)cornerRadius roundCorners:(OSCornerType)corner onTop:(BOOL)top {
 	// Black outline around the top for perfection, -0.5 corner radius
