@@ -16,6 +16,8 @@ It builds as a SIMBL plugin; so to use, just build and put the plugin in "~/Libr
 
 h3. Adding Your Own Features
 
+I included an application (Framework Dumper) that gets class headers for cocoa frameworks and puts them into a directory. Use it to find hidden methods to override.
+
 The layout of the documents should be self-explanatory, if not. Here is a quick run through:
 
 	1. There is a root plugin class, BMXController.h which is in charge of initializing the plugin, starting the swizzling of all the methods, and basically just getting things going.	
