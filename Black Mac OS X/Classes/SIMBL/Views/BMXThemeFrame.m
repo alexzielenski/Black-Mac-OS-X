@@ -17,6 +17,7 @@ static NSImage *middleHighlight;
 - (void)orig_drawRect:(NSRect)fp8;
 - (void)orig_drawFrame:(CGRect)fp8;
 - (id)orig_customTitleCell;
+- (void)orig_drawTitleBar:(CGRect)fp8;
 - (void)orig_dealloc;
 @end
 
@@ -82,14 +83,7 @@ static NSImage *middleHighlight;
 	}
 }
 - (void)new_drawFrame:(struct CGRect)arg1 {	
-	if (!self._isHUDWindow) {
-	// Fill the background color
-		NSEraseRect(self.bounds);
-		[[NSColor clearColor] set];
-		NSRectFillUsingOperation(self.bounds, NSCompositeClear);
-		[(NSColor*)self.contentFill set];
-		NSRectFillUsingOperation(NSRectFromCGRect(self.contentRect), NSCompositeSourceOver); // This broke HUD windows
-	} else {
+	if (self._isHUDWindow) {
 		[self orig_drawFrame:arg1];
 		return; // we dont want to break HUD
 	}
@@ -100,8 +94,7 @@ static NSImage *middleHighlight;
  	}
 	[self drawTitleBar];
 	[self _drawTitleStringIn:self.bounds withColor:[NSColor whiteColor]];
-	
-	
+
 }
 - (void)drawHighlightsWithCorners:(BOOL)useCorners {
 
@@ -145,9 +138,22 @@ static NSImage *middleHighlight;
 	
 }
 - (void)new_drawRect:(NSRect)fp8 {
-	// I don't know what the original drawRect: does, nor do i want to mess with it so lets just draw the bottom bar over it.
-	[self orig_drawRect:fp8];
-	[self drawBottomBar];
+//	// I don't know what the original drawRect: does, nor do i want to mess with it so lets just draw the bottom bar over it.
+//	[self orig_drawRect:fp8];
+	NSEraseRect(self.bounds);
+	[[NSColor clearColor] set];
+	NSRectFillUsingOperation(self.bounds, NSCompositeClear);
+	[(NSColor*)self.contentFill set];
+	NSRectFillUsingOperation(NSRectFromCGRect(self.contentRect), NSCompositeSourceOver); // This broke HUD windows
+	
+	[self drawBottomBar]; // bottom bar before the titlebar
+
+	[self _drawTitleBar:NSRectToCGRect(fp8)];
+	[self _drawToolbarTransitionIfNecessary];
+	
+//	[(NSCell*)self._customTitleCell drawWithFrame:NSRectFromCGRect([self _titlebarTitleRect]) 
+//										   inView:self];
+	[self _drawTitleStringIn:self.bounds withColor:[NSColor whiteColor]];
 }
 #pragma mark - Title
 - (id)new_customTitleCell {

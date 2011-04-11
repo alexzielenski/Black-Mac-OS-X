@@ -57,7 +57,13 @@ h3. Issues
 # -Toolbars have unreadable text- Fixed!
 # Finder isn't themed on initial login.
 # Sometimes the Finder bottom bar isn't white. (especially when selecting an object)
-# Toolbar buttons and such that have a background but are in the title bar or bottom bar have white text or images. (most noticeable in system preferences)
+# -Toolbar buttons and such that have a background but are in the title bar or bottom bar have white text or images. (most noticeable in system preferences)- Fixed!
+
+h3. Todo
+
+# Customize NSButtons and such
+# Custom source list sidebar
+# Find a way to theme finder at login. (Maybe a login item that restarts it automatically?)
 
 h3. License
 
