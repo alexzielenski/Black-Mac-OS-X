@@ -37,6 +37,11 @@ static NSGradient *inactiveGradient = nil;
 	return NSBackgroundStyleLight; // this stuff doesn't work. any help?*/
 	if (self.controlView) {
 		NSThemeFrame *themeFrame = (NSThemeFrame*)[[[self.controlView window] contentView] superview];
+		if (![themeFrame isKindOfClass:[NSThemeFrame class]])
+			themeFrame=[themeFrame superview];
+		if (!themeFrame)
+			return (NSBackgroundStyle)[self orig_backgroundStyle];
+		
 		NSRect topBar = NSMakeRect(0, NSMaxY(themeFrame.frame)-themeFrame._topBarHeight, themeFrame.frame.size.width, themeFrame._topBarHeight);
 		NSRect bottomBar = NSMakeRect(0, 0, themeFrame.frame.size.width, themeFrame._bottomBarHeight);
 		NSRect frame = self.controlView.frame;
