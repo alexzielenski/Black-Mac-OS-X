@@ -24,7 +24,7 @@
 
 @implementation BMXController
 SYNTHESIZE_SINGLETON_FOR_CLASS(BMXController); // Create easy singleton. Thanks http://cocoawithlove.com/2008/11/singletons-appdelegates-and-top-level.html
-+ (void)load {
++ (void)load {	
 	BMXController *controller = [BMXController sharedBMXController];
 	[controller swizzle];
 	
