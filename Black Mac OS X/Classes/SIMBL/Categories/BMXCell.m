@@ -127,6 +127,7 @@ static NSGradient *inactiveGradient = nil;
 			}
 			NSBezierPath *segPath = [NSBezierPath bezierPathWithRoundedRect:NSInsetRect(sepRect, 1, 1) cornerRadius:4.0f inCorners:corners];
 			[segPath fillWithInnerShadow:selectedShadow];
+			[self.class.selectedGradient drawInBezierPath:segPath angle:-90];
 			[selectedShadow release];
 			[path setClip];
 		}
@@ -140,7 +141,7 @@ static NSGradient *inactiveGradient = nil;
 - (NSGradient*)titleGradient {
 	if (!titleGradient)
 		titleGradient = [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceWhite:0.319 alpha:1.000]
-													   endingColor:[NSColor colorWithDeviceWhite:0.100 alpha:1.000]] retain];
+													   endingColor:[NSColor colorWithDeviceWhite:0.160 alpha:1.000]] retain];
 	if (!inactiveGradient)
 		inactiveGradient = [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceWhite:0.340 alpha:1.000]
 														  endingColor:[NSColor colorWithDeviceWhite:0.240 alpha:1.000]] retain];
@@ -151,5 +152,13 @@ static NSGradient *inactiveGradient = nil;
 	
 	return titleGradient;
 	
+}
++ (NSGradient*)selectedGradient {
+	static NSGradient *selectedGradient;
+	if (!selectedGradient) {
+		selectedGradient=[[NSGradient alloc] initWithStartingColor:[[NSColor whiteColor]colorWithAlphaComponent:0.45f] 
+													   endingColor:[NSColor clearColor]];
+	}
+	return selectedGradient;
 }
 @end

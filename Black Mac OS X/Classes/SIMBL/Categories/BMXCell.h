@@ -15,5 +15,7 @@
 
 @interface NSSegmentedCell (BMXSegmentedCell)
 - (NSGradient*)titleGradient;
++ (NSGradient*)selectedGradient;
+
 - (struct CGRect)_rectForSegment:(long long)arg1 inFrame:(struct CGRect)arg2;	// IMP=0x00127768
 @end
