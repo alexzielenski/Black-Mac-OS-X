@@ -114,7 +114,7 @@ static NSGradient *inactiveGradient = nil;
 		if (currentSeg==[self selectedSegment]) {
 			NSShadow *selectedShadow = [[NSShadow alloc] init];
 			[selectedShadow setShadowColor:[NSColor whiteColor]];
-			[selectedShadow setShadowBlurRadius:6.0f];
+			[selectedShadow setShadowBlurRadius:2.0f];
 			OSCornerType corners = 0;
 			if (currentSeg==0)
 				corners|=OSTopLeftCorner|OSBottomLeftCorner;

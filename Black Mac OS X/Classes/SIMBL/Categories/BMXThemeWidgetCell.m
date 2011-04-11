@@ -28,8 +28,9 @@ typedef enum {
 }
 - (void)coreUIDrawWithFrame:(struct CGRect)arg1 inView:(id)arg2 {
 	BMXTitlebarButtonStyle style = self.buttonID;
-	BOOL disabled = ([[self.drawOptions objectForKey:@"state"] isEqualToString:@"disabled"]);
+	BOOL disabled = ([(NSString*)[self coreUIState] isEqualToString:@"disabled"]);
 	BOOL shouldRollover = ([(NSString*)[self coreUIState] isEqualToString:@"rollover"]);
+	NSLog(@"%@", (NSString*)[self coreUIState]);
 	NSLog(@"%@", (NSDictionary*)_coreUIDrawOptions);
 
 	NSRect frame = NSZeroRect;
