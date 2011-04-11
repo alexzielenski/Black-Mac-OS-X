@@ -21,19 +21,15 @@
      method from within my categories without tons of code
  */
 
-@interface BMXController (Obama)
-- (float)_titlebarHeight;
-- (NSRect)titlebarRect;
-- (NSRect)frame;
-+ (void)drawBevel:(struct CGRect)arg1 inFrame:(struct CGRect)arg2 topCornerRounded:(BOOL)arg3 bottomCornerRounded:(BOOL)arg4 isHUD:(BOOL)arg5 isDarkWindow:(BOOL)arg6;	// IMP=0x002622e3
-
-@end
 
 @implementation BMXController
 SYNTHESIZE_SINGLETON_FOR_CLASS(BMXController); // Create easy singleton. Thanks http://cocoawithlove.com/2008/11/singletons-appdelegates-and-top-level.html
 + (void)load {
 	BMXController *controller = [BMXController sharedBMXController];
 	[controller swizzle];
+	
+	//	[[NSApplication sharedApplication] makeWindowsPerform:@selector(display)
+	//											  inOrder:NO];
 	
 	// Redraw the currently displayed windows with the black stuff on it
 	for (NSWindow *window in [[NSApplication sharedApplication] windows]) {
@@ -44,5 +40,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BMXController); // Create easy singleton. Thanks 
 	NSLog(@"Swizzling…");
 	[NSThemeFrame swizzle];
 	[NSCell swizzle];
+//	[NSSegmentedCell swizzle];
 }
 @end

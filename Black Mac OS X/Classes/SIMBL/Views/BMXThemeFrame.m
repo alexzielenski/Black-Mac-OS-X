@@ -13,6 +13,13 @@ static NSImage *leftHighlight;
 static NSImage *rightHighlight;
 static NSImage *middleHighlight;
 
+@interface NSThemeFrame (QuietWarnings)
+- (void)orig_drawRect:(NSRect)fp8;
+- (void)orig_drawFrame:(CGRect)fp8;
+- (id)orig_customTitleCell;
+- (void)orig_dealloc;
+@end
+
 @implementation NSThemeFrame (BMXThemeFrame)
 #pragma mark - Init
 + (void)swizzle {

@@ -11,7 +11,7 @@
 
 @implementation NSObject (BMXObject)
 + (void)swizzle {
-	return;
+	return; // override this
 }
 - (BOOL)isBMXCustomized {
 	return NO;
