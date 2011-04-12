@@ -40,6 +40,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BMXController); // Create easy singleton. Thanks 
 	NSLog(@"Swizzling…");
 	[NSThemeFrame swizzle];
 	[NSCell swizzle];
+	[NSButtonCell swizzle];
 //	[NSSegmentedCell swizzle];
 }
 @end

@@ -10,9 +10,26 @@
 #import "NSThemeFrame.h"
 #import "NSBezierPath+MCAdditions.h"
 
+typedef enum {
+	BMXSegmentNormalState = 1,
+	BMXSegmentDisabledState = 0,
+	BMXSegmentMouseDownState = 3,
+	BMXSegmentSelectedState = 4,
+	BMXSegmentSelectedMouseDownState = 5 // when the selected segment has mousedown
+} BMXSegmentHighlightState;
+
 static NSGradient *titleGradient = nil;
 static NSGradient *inactiveGradient = nil;
-
+@interface NSCell ()
+- (NSBackgroundStyle)orig_backgroundStyle;
+@end
+@interface NSSegmentedCell ()
+- (struct CGRect)_rectForSegment:(long long)arg1 inFrame:(struct CGRect)arg2;	// IMP=0x00127768
+@end
+@interface NSButtonCell ()
+- (void)orig_drawBezelWithFrame:(NSRect)arg1 inView:(NSView*)fp8;
+- (NSBackgroundStyle)orig_interiorBackgroundStyle;
+@end
 @implementation NSCell (BMXCell)
 + (void)swizzle {
 	// backgroundstyle
@@ -38,7 +55,7 @@ static NSGradient *inactiveGradient = nil;
 	if (self.controlView) {
 		NSThemeFrame *themeFrame = (NSThemeFrame*)[[[self.controlView window] contentView] superview];
 		if (![themeFrame isKindOfClass:[NSThemeFrame class]])
-			themeFrame=[themeFrame superview];
+			themeFrame=(NSThemeFrame*)[themeFrame superview];
 		if (!themeFrame)
 			return (NSBackgroundStyle)[self orig_backgroundStyle];
 		
@@ -55,6 +72,29 @@ static NSGradient *inactiveGradient = nil;
 /*- (NSBackgroundStyle)interiorBackgroundStyle {
 	return NSBackgroundStyleLowered;
 }*/
+- (NSGradient*)titleGradient {
+	if (!titleGradient)
+		titleGradient = [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceWhite:0.319 alpha:1.000]
+													   endingColor:[NSColor colorWithDeviceWhite:0.160 alpha:1.000]] retain];
+	if (!inactiveGradient)
+		inactiveGradient = [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceWhite:0.340 alpha:1.000]
+														  endingColor:[NSColor colorWithDeviceWhite:0.240 alpha:1.000]] retain];
+	if (![self.controlView.window isKeyWindow]) {
+		return inactiveGradient;
+	}
+	
+	
+	return titleGradient;
+	
+}
++ (NSGradient*)selectedGradient {
+	static NSGradient *selectedGradient;
+	if (!selectedGradient) {
+		selectedGradient=[[NSGradient alloc] initWithStartingColor:[[NSColor whiteColor]colorWithAlphaComponent:0.45f] 
+													   endingColor:[NSColor clearColor]];
+	}
+	return selectedGradient;
+}
 @end
 @implementation NSSegmentedCell (BMXSegmentedCell)
 
@@ -103,7 +143,6 @@ static NSGradient *inactiveGradient = nil;
 	
 	[NSGraphicsContext restoreGraphicsState];
 	[path2 release];
-	
 	NSInteger currentSeg = 0;
 	while (currentSeg<segmentCount) {
 		NSRect sepRect = NSRectFromCGRect([self _rectForSegment:currentSeg inFrame:arg2]);
@@ -111,7 +150,8 @@ static NSGradient *inactiveGradient = nil;
 			[[NSColor blackColor] set];
 			NSRectFill(NSMakeRect(NSMaxX(sepRect)-1, 0, 1, NSHeight(sepRect)));
 		}
-		if (currentSeg==[self selectedSegment]) {
+		BMXSegmentHighlightState state = [self _segmentHighlightState:currentSeg];
+		if (state==BMXSegmentSelectedState||state==BMXSegmentMouseDownState||state==BMXSegmentSelectedMouseDownState) {
 			NSShadow *selectedShadow = [[NSShadow alloc] init];
 			[selectedShadow setShadowColor:[NSColor whiteColor]];
 			[selectedShadow setShadowBlurRadius:2.0f];
@@ -138,27 +178,89 @@ static NSGradient *inactiveGradient = nil;
 	return YES;
 }
 
-- (NSGradient*)titleGradient {
-	if (!titleGradient)
-		titleGradient = [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceWhite:0.319 alpha:1.000]
-													   endingColor:[NSColor colorWithDeviceWhite:0.160 alpha:1.000]] retain];
-	if (!inactiveGradient)
-		inactiveGradient = [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceWhite:0.340 alpha:1.000]
-														  endingColor:[NSColor colorWithDeviceWhite:0.240 alpha:1.000]] retain];
-	if (![self.controlView.window isKeyWindow]) {
-		return inactiveGradient;
-	}
+
+@end
+
+@implementation NSButtonCell (BMXButtonCell)
++ (void)swizzle {
+	NSError *err = nil;
+	[self jr_aliasMethod:@selector(drawBezelWithFrame:inView:) 
+			withSelector:@selector(orig_drawBezelWithFrame:inView:)
+				   error:&err];
+	NSLog(@"%@", err);
+	[self jr_swizzleMethod:@selector(drawBezelWithFrame:inView:)
+				withMethod:@selector(new_drawBezelWithFrame:inView:)
+					 error:&err];
+	NSLog(@"%@", err);
 	
-	
-	return titleGradient;
+	[self jr_aliasMethod:@selector(interiorBackgroundStyle) 
+			withSelector:@selector(orig_interiorBackgroundStyle)
+				   error:&err];
+	NSLog(@"%@", err);
+	[self jr_swizzleMethod:@selector(interiorBackgroundStyle)
+				withMethod:@selector(new_interiorBackgroundStyle)
+					 error:&err];
+	NSLog(@"%@", err);
 	
 }
-+ (NSGradient*)selectedGradient {
-	static NSGradient *selectedGradient;
-	if (!selectedGradient) {
-		selectedGradient=[[NSGradient alloc] initWithStartingColor:[[NSColor whiteColor]colorWithAlphaComponent:0.45f] 
-													   endingColor:[NSColor clearColor]];
-	}
-	return selectedGradient;
+- (BOOL)shouldHack {
+	return (self.bezelStyle==NSTexturedSquareBezelStyle||self.bezelStyle==NSTexturedRoundedBezelStyle); // only hack textured buttons
 }
+- (NSBackgroundStyle)new_interiorBackgroundStyle {
+	if (self.shouldHack)
+		return NSBackgroundStyleLowered;
+	return [self orig_interiorBackgroundStyle];
+}
+- (void)new_drawBezelWithFrame:(NSRect)frame inView:(NSView*)arg2 {
+	if (!self.shouldHack) {
+		[self orig_drawBezelWithFrame:frame inView:arg2];
+		return;
+	}
+	
+	NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:frame 
+													cornerRadius:4.0];
+	[path setLineWidth:2.0f];
+	[path addClip];
+	
+	NSBezierPath *path2 = [path copy];
+	
+	[self.titleGradient drawInBezierPath:path
+								   angle:90];
+	
+	[NSGraphicsContext saveGraphicsState];
+	NSAffineTransform *trans = [NSAffineTransform transform];
+	[trans translateXBy:0.0f yBy:1.0f];
+	[path2 transformUsingAffineTransform:trans];
+	
+	[[[NSColor whiteColor]colorWithAlphaComponent:0.25] set];
+	[path2 stroke];
+	[path setClip];
+	[NSGraphicsContext restoreGraphicsState];
+	
+	[path setLineWidth:2.0f];
+	[NSGraphicsContext saveGraphicsState];
+	[[NSColor blackColor] set];
+	
+	[path stroke];
+	[path2 setClip];
+	
+	[NSGraphicsContext restoreGraphicsState];
+	[path2 release];
+	
+	if (self.isHighlighted) {
+		NSBezierPath *selectionPath = [NSBezierPath bezierPathWithRoundedRect:NSInsetRect(path.bounds, 
+																						  1, 1) 
+																 cornerRadius:4.0f];
+		NSShadow *selectedShadow = [[NSShadow alloc] init];
+		[selectedShadow setShadowColor:[NSColor whiteColor]];
+		[selectedShadow setShadowBlurRadius:2.0f];
+		
+		[selectionPath fillWithInnerShadow:selectedShadow];
+		[self.class.selectedGradient drawInBezierPath:selectionPath angle:-90];
+		[selectedShadow release];
+	}
+	[path setClip];
+
+}
+
 @end

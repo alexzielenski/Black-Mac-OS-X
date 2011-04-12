@@ -35,7 +35,7 @@ The layout of the documents should be self-explanatory, if not. Here is a quick 
 	[self orig_overriddenMethod]; // Call the original method (if needed)
 	[self setColor:[NSColor greenColor]]; // Do what you need to do.
 }</pre>	
-	4. Don't forget to import the category you create into BMXController and add the JRSwizzle code:
+	4. Don't forget to import the category you create into BMXController and called -swizzle and add this code into the swizzle method of your category!
 
 	<pre>#import "BMXTableView.h"
 …

@@ -11,11 +11,16 @@
 
 @interface NSCell (BMXCell)
 - (NSBackgroundStyle)new_backgroundStyle;
+
+- (NSGradient*)titleGradient;
++ (NSGradient*)selectedGradient;
 @end
 
 @interface NSSegmentedCell (BMXSegmentedCell)
-- (NSGradient*)titleGradient;
-+ (NSGradient*)selectedGradient;
+@end
 
-- (struct CGRect)_rectForSegment:(long long)arg1 inFrame:(struct CGRect)arg2;	// IMP=0x00127768
+@interface NSButtonCell (BMXButtonCell)
+- (void)new_drawBezelWithFrame:(NSRect)arg1 inView:(id)arg2;
+- (NSBackgroundStyle)new_interiorBackgroundStyle;
+- (BOOL)shouldHack;
 @end
