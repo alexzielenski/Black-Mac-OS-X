@@ -76,16 +76,16 @@ static NSImage *middleHighlight;
 
 #pragma mark - Drawing
 - (void)new_drawTitleBar:(struct CGRect)arg1 {	// IMP=0x001023e0	
-	if (!self._isHUDWindow)
-		[self drawTitleBar];	
-	else {
+	if ((self.styleMask & NSTitledWindowMask)!=NSTitledWindowMask) {
 		[self orig_drawTitleBar:arg1];
+		return;
 	}
+	[self drawTitleBar];
 }
 - (void)new_drawFrame:(struct CGRect)arg1 {	
-	if (self._isHUDWindow) {
+	if ((self.styleMask & NSTitledWindowMask)!=NSTitledWindowMask) {
 		[self orig_drawFrame:arg1];
-		return; // we dont want to break HUD
+		return;
 	}
 	
 	// If it isn't textured , draw the titlebar;
@@ -140,6 +140,11 @@ static NSImage *middleHighlight;
 - (void)new_drawRect:(NSRect)fp8 {
 //	// I don't know what the original drawRect: does, nor do i want to mess with it so lets just draw the bottom bar over it.
 //	[self orig_drawRect:fp8];
+	if ((self.styleMask & NSTitledWindowMask)!=NSTitledWindowMask) {
+		[self orig_drawRect:fp8];
+		return;
+	}
+		
 	NSEraseRect(self.bounds);
 	[[NSColor clearColor] set];
 	NSRectFillUsingOperation(self.bounds, NSCompositeClear);
@@ -158,6 +163,8 @@ static NSImage *middleHighlight;
 #pragma mark - Title
 - (id)new_customTitleCell {
 	id cell = [self orig_customTitleCell];
+	if ((self.styleMask & NSTitledWindowMask)!=NSTitledWindowMask)
+		return cell;
 	if (cell)
 		[(NSTextFieldCell*)cell setBackgroundStyle:NSBackgroundStyleLowered];
 	return cell;
@@ -178,6 +185,9 @@ static NSImage *middleHighlight;
 							onTop:NO];
 }
 - (void)drawTitleBar {
+	if ((self.styleMask & NSTitledWindowMask)!=NSTitledWindowMask)
+		return;
+	
 	BOOL utilityWindow = ((self.styleMask&NSUtilityWindowMask)==NSUtilityWindowMask);
 	
 	CGFloat topBarHeight = self._topBarHeight;
@@ -201,6 +211,8 @@ static NSImage *middleHighlight;
 }
 - (void)drawTitleGradientInRect:(NSRect)titleRect cornerRadius:(CGFloat)cornerRadius roundCorners:(OSCornerType)corner onTop:(BOOL)top {
 	// Black outline around the top for perfection, -0.5 corner radius
+	if ((self.styleMask & NSTitledWindowMask)!=NSTitledWindowMask)
+		return;
 	[NSGraphicsContext saveGraphicsState];
 	NSRect rect = titleRect;
 	NSBezierPath *path = nil;

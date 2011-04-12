@@ -97,7 +97,17 @@ static NSGradient *inactiveGradient = nil;
 }
 @end
 @implementation NSSegmentedCell (BMXSegmentedCell)
-
++ (void)swizzle {
+	NSError *err = nil;
+	[self jr_aliasMethod:@selector(_coreUIDrawSegmentBackground:withCellFrame:inView:) 
+			withSelector:@selector(orig_coreUIDrawSegmentBackground:withCellFrame:inView:)
+				   error:&err];
+	NSLog(@"%@", err);
+	[self jr_swizzleMethod:@selector(_coreUIDrawSegmentBackground:withCellFrame:inView:)
+				withMethod:@selector(new_coreUIDrawSegmentBackground:withCellFrame:inView:)
+					 error:&err];
+	NSLog(@"%@", err);
+}
 - (NSBackgroundStyle)interiorBackgroundStyle {
 	return NSBackgroundStyleLowered;
 }
@@ -110,9 +120,13 @@ static NSGradient *inactiveGradient = nil;
 - (long long)_initialBackgroundStyleCompatibilityGuess {
 	return NSBackgroundStyleLowered;
 }
-- (BOOL)_coreUIDrawSegmentBackground:(long long)arg1 withCellFrame:(struct CGRect)arg2 inView:(id)arg3 {
-	NSRect frame = NSRectFromCGRect(arg2);
-	NSInteger segmentCount = [(NSSegmentedControl*)arg3 segmentCount];
+- (BOOL)new_coreUIDrawSegmentBackground:(long long)arg1 withCellFrame:(NSRect)arg2 inView:(NSView*)arg3 {
+	NSRect frame = arg2;
+	NSInteger segmentCount;
+	if (![arg3 respondsToSelector:@selector(segmentCount)]) {
+		return [self orig_coreUIDrawSegmentBackground:arg1 withCellFrame:arg2 inView:arg3];
+	} else 
+		segmentCount = [(NSSegmentedControl*)arg3 segmentCount];
 	
 	NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:frame 
 													cornerRadius:4.0];
@@ -145,7 +159,7 @@ static NSGradient *inactiveGradient = nil;
 	[path2 release];
 	NSInteger currentSeg = 0;
 	while (currentSeg<segmentCount) {
-		NSRect sepRect = NSRectFromCGRect([self _rectForSegment:currentSeg inFrame:arg2]);
+		NSRect sepRect = NSRectFromCGRect([self _rectForSegment:currentSeg inFrame:NSRectToCGRect(arg2)]);
 		if (currentSeg-segmentCount+1<0) {
 			[[NSColor blackColor] set];
 			NSRectFill(NSMakeRect(NSMaxX(sepRect)-1, 0, 1, NSHeight(sepRect)));
